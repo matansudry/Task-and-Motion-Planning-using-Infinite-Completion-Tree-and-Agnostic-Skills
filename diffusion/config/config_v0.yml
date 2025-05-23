@@ -1,0 +1,50 @@
+GENERAL_PARMAS:
+  output_path: ""
+  log_expirment_wandb: True
+  num_workers: 20
+  env_config:
+    pick: no_git/agents_rl/pick/env_config.yaml
+    place: no_git/agents_rl/place/env_config.yaml
+    pull: no_git/agents_rl/pull/env_config.yaml
+    push: no_git/agents_rl/push/env_config.yaml
+  checkpoint:
+    pick: no_git/agents_rl/pick/best_model.pt
+    place: no_git/agents_rl/place/best_model.pt
+    pull: no_git/agents_rl/pull/best_model.pt
+    push: no_git/agents_rl/push/best_model.pt
+  device: &device cuda
+  primitive: pick
+
+
+TRAINER:
+  type: DiffusionTrainer
+  params:
+    model:
+      type: Diffusion_gsc
+      params:
+        checkpoint: ""
+    training:
+      optimizer:
+        lr: 0.0001
+      scheduler:
+        lr_gamma: 0.8
+        lr_step_size: 50
+      batch_size: 32
+      num_epochs: 50
+      clip_grad: 10
+
+DATASET:
+  type: DataFrameDataset
+  params:
+    train:
+      paths: ["no_git/stap_data_summary_29_2_2024.gzip"]
+      preprocesses: []
+      device: *device
+      data_type: train
+      primitive: null
+    test:
+      paths: ["no_git/stap_data_summary_29_2_2024.gzip"]
+      preprocesses: []
+      device: *device
+      data_type: validation
+      primitive: null

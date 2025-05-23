@@ -1,0 +1,17 @@
+  type: stap
+  params:
+    config: configs/pybullet/planners/ablation/scod_policy_cem.yaml
+    device: cuda
+    policy_checkpoints:
+      - no_git/agents_rl/pick/official_model.pt
+      - no_git/agents_rl/place/official_model.pt
+      - no_git/agents_rl/pull/official_model.pt
+      - no_git/agents_rl/push/official_model.pt
+    scod_checkpoints:
+      - no_git/scod_rl/official_model/pick/final_scod.pt
+      - no_git/scod_rl/official_model/place/final_scod.pt
+      - no_git/scod_rl/official_model/pull/final_scod.pt
+      - no_git/scod_rl/official_model/push/final_scod.pt
+    dynamics_checkpoint: no_git/dynamics_irl/pick_place_pull_push_dynamics/official_model.pt
+    task_path: null
+    seed: null

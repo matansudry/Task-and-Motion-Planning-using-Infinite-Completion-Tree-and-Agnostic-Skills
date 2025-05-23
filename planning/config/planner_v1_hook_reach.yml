@@ -1,0 +1,45 @@
+GENERAL_PARMAS:
+  output_path: ""
+  pddl_domain: planning/config/hook_reach/tamp0_domain_new.pddl
+  #easy
+  #pddl_problem: configs/pybullet/envs/official/sim_domains/constrained_packing/tamp0_problem_easy.pddl
+  #mid
+  pddl_problem: planning/config/hook_reach/tamp0_problem_new.pddl
+  #hard
+  #pddl_problem: configs/pybullet/envs/official/sim_domains/constrained_packing/tamp0_problem_hard.pddl
+  task_path: planning/config/hook_reach/task0.yaml
+  search_method: bfs
+  heuristic_name: null
+  seed: 0
+  device: cuda
+  p_high_level: 0.5  
+  filter_isComplete: True #dont work
+  max_tries_per_node: 2
+  max_tries_in_loop: 1000
+  system_type: tamp
+  max_steps: 100000000
+  high_level_balance: 0.1
+  max_time: 300
+  num_iterations: 5
+  turn_off_high_level: False
+  number_of_high_level_plans: null
+  max_high_level_steps: 1000
+  high_level_min_score: 0.001
+  stochastic_actions: False
+  state_estimator:
+    type: p_value #p_value
+    params: {
+      checkpoints: {
+        place: "no_git/checkpoints/p_estimator/golden/Place_12_10_20_23_23_944420/epoch=995-step=182268.ckpt",
+        pick: "no_git/checkpoints/p_estimator/golden/Pick_12_9_20_24_37_957370/epoch=999-step=279000.ckpt",
+      }
+    }
+
+HIGH_LEVEL_PLANNER:
+  type: pyperplan
+  params:
+    max_depth: 30
+    timeout: 30
+    verbose: False
+
+LOW_LEVEL_PLANNER: null

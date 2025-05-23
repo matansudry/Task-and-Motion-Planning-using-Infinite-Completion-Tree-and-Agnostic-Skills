@@ -1,0 +1,33 @@
+GENERAL_PARMAS:
+  primitive: place
+  checkpoint_path: null
+DATA:
+  batch_size: 64
+  SPLIT:
+    Pick: 
+    - p_estimator/data/Pick_split_1_3.pickle
+    Place: 
+    - p_estimator/data/Place_split_1_3.pickle
+  TRAIN:
+    num_workers: 20
+  VAL:
+    num_workers: 20
+  TEST:
+    num_workers: 20
+  PREDICT:
+    num_workers: 20
+
+TRAINER:
+  TRAINING:
+    num_epochs: 2000
+    lr: 0.0001
+  callbacks:
+    ModelCheckpoint:
+      save_top_k: 3
+      monitor: val_loss
+      mode: min
+    LogImageCallback: {}
+    LearningRateMonitor:
+      logging_interval: step
+    MetricCallback: {}
+    LogQvsPCallback: {}

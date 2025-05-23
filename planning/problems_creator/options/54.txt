@@ -1,0 +1,4 @@
+		(on red_box blue_box)
+		(on yellow_box cyan_box)
+		(on cyan_box red_box)
+		(on blue_box rack)

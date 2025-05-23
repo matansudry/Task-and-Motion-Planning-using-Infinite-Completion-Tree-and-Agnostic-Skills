@@ -1,0 +1,13 @@
+name: dataset_generation_round_four
+number_of_seeds: [300, 350]
+max_time: 1200
+problems:
+  easy: "planning/config/problems/tamp0_problem_easy_one_tower.pddl"
+  mid: "planning/config/problems/tamp0_problem_mid_one_tower.pddl"
+  hard: "planning/config/problems/tamp0_problem_hard_one_tower.pddl"
+max_cuda: 4
+difficult:
+  - hard
+systems:
+  #- els_v2
+  - tamp

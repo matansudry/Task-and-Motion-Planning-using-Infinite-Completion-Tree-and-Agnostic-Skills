@@ -1,0 +1,80 @@
+env: pybullet.TableEnv
+env_kwargs:
+  gui: false
+  name: constrained_packing_0
+  objects:
+  - object_kwargs:
+      is_static: true
+      name: table
+      path: configs/pybullet/envs/assets/iprl_table.urdf
+    object_type: Urdf
+  - object_kwargs:
+      color:
+      - 0.4
+      - 0.2
+      - 0.0
+      - 1.0
+      name: rack
+      size:
+      - 0.22
+      - 0.32
+      - 0.16
+    object_type: Rack
+  - configs/pybullet/envs/assets/yogurt.yaml
+  - configs/pybullet/envs/assets/milk.yaml
+  - configs/pybullet/envs/assets/icecream.yaml
+  - configs/pybullet/envs/assets/salt.yaml
+  primitives:
+  - pick
+  - place
+  - pull
+  - push
+  robot_config: configs/pybullet/envs/robots/franka_panda_sim.yaml
+  tasks:
+  - action_skeleton:
+    - pick(red_box, table)
+    - place(red_box, rack)
+    - pick(yellow_box, table)
+    - place(yellow_box, rack)
+    - pick(cyan_box, table)
+    - place(cyan_box, rack)
+    - pick(blue_box, table)
+    - place(blue_box, rack)
+    - pick(red_box, yellow_box)
+    - pick(red_box, cyan_box)
+    - pick(red_box, blue_box)
+    - place(red_box, yellow_box)
+    - place(red_box, cyan_box)
+    - place(red_box, blue_box)
+    - pick(yellow_box, red_box)
+    - pick(yellow_box, cyan_box)
+    - pick(yellow_box, blue_box)
+    - place(yellow_box, red_box)
+    - place(yellow_box, cyan_box)
+    - place(yellow_box, blue_box)
+    - pick(cyan_box, yellow_box)
+    - pick(cyan_box, red_box)
+    - pick(cyan_box, blue_box)
+    - place(cyan_box, yellow_box)
+    - place(cyan_box, red_box)
+    - place(cyan_box, blue_box)
+    - pick(blue_box, yellow_box)
+    - pick(blue_box, cyan_box)
+    - pick(blue_box, red_box)
+    - place(blue_box, yellow_box)
+    - place(blue_box, cyan_box)
+    - place(blue_box, red_box)
+    initial_state:
+    - handempty()
+    - aligned(rack)
+    - poslimit(rack)
+    - inworkspace(rack)
+    - inworkspace(yellow_box)
+    - inworkspace(red_box)
+    - inworkspace(cyan_box)
+    - on(rack, table)
+    - on(cyan_box, rack)
+    - on(blue_box, table)
+    - on(red_box, cyan_box)
+    - on(yellow_box, blue_box)
+

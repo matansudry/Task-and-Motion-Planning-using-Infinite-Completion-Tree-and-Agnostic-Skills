@@ -1,0 +1,13 @@
+type: diffusion
+params:
+  checkpoints:
+    pick: no_git/checkpoints/zoo/pick_3_1_8_45_4/epoch=49-step=1250000.ckpt
+    place: no_git/checkpoints/zoo/place_3_1_8_45_4/epoch=49-step=1250000.ckpt
+    pull: no_git/checkpoints/zoo/pull_3_1_8_45_4/epoch=48-step=1225000.ckpt
+    push: no_git/checkpoints/zoo/push_3_1_8_45_4/epoch=49-step=1250000.ckpt
+  network_type: Diffusion_gsc
+  state_dim: 96
+  action_dim: 4
+  use_transition_model: false
+  num_samples: 5
+  num_steps: 256

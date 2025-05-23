@@ -1,0 +1,4 @@
+		(on red_box rack)
+		(on yellow_box table)
+		(on cyan_box blue_box)
+		(on blue_box red_box)

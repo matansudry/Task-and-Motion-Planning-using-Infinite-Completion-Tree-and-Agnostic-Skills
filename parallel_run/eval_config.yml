@@ -1,0 +1,30 @@
+name: eval_v4
+num_of_workers: 36
+number_of_seeds: [0, 100]
+max_time: 1200  
+problems:
+  easy: "planning/config/problems/tamp0_problem_easy_one_tower.pddl"
+  mid: "planning/config/problems/tamp0_problem_mid_one_tower.pddl"
+  hard: "planning/config/problems/tamp0_problem_hard_one_tower.pddl"
+max_cuda: 4
+turn_off_high_level: False
+stochastic_actions: False
+
+difficult:
+  - easy
+  - mid
+  - hard
+
+num_of_high_level_plans:
+  - 1
+  - 3
+  - 5
+  - 7
+  
+systems:
+  - els_v2
+  #- tamp
+  
+state_estimator:
+  - "q_value"
+  - "p_value"

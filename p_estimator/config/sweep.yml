@@ -1,0 +1,18 @@
+program: p_estimator/train.py
+method: random
+metric: 
+  goal: minimize,
+  name: val_loss,
+parameters:
+  TRAINER:
+    parameters:
+      TRAINING:
+        parameters:
+          lr:
+            values: [0.001, 0.0001, 0.00001]
+  DATA:
+    parameters:
+      batch_size:
+        values: [16, 32, 64]
+  primitive:
+    values: [Place] #, pick]

@@ -1,0 +1,23 @@
+general_params:
+  output_path: ""
+  seed: 0
+  save_env_config: False
+  previous_action_folder: null #no_git/playground/samples/Pick  #no_git/dataset/Pick #null
+  varbase: False
+  playground_folder: no_git/playground/samples/temp_samples
+
+env:
+  object_types:
+    table: "unmovable"
+    rack: "receptacle"
+    hook: "tool"
+    milk: "box"
+    yogurt: "box"
+    icecream: "box"
+    salt: "box"
+  pddl_config: null
+  template_env_yaml: configs/pybullet/envs/official/template/template_env.yaml
+  symbolic_action_type: "valid"
+  env_config_path: config.env_config_path
+  name: train_valid_pick_0
+  primitive: pick #place #pick
